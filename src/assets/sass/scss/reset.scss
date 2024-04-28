@@ -1,0 +1,28 @@
+// sass src/assets/sass/app.scss src/assets/css/app.css
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+
+.boder-ra {
+  border-radius: 2rem;
+}
+input,
+button {
+  outline: none;
+  border: none;
+}

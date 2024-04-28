@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="/src/assets/css/app.css" />
+    <!--fontAwesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- introjs -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css"
+    />
+  </head>
+  <body>
+    <div class="contenner boder-ra" id="contenner">
+      <h1>Rùa Thời Tiết</h1>
+      <div class="time-input">
+        <input
+          data-intro="Nhập tên tỉnh thành phố cần tìm"
+          type="text"
+          name=""
+          id="sreach-input"
+          class="boder-ra"
+        />
+
+        <div
+          class="time"
+          data-intro="Hiển thị thời gian hiện tại của máy tính"
+          id="time"
+        ></div>
+      </div>
+      <div class="content" id="content">
+        <div class="capticals">
+          <div class="ctiy" id="city"></div>
+          <div class="contry" id="contry"></div>
+        </div>
+
+        <div class="temperature">
+          <div class="temperature-dec" data-intro="Bảng hiện thị  nhiệt độ">
+            <div class="icon" id="icon">
+              <img src />
+            </div>
+            <p></p>
+          </div>
+          <div class="temperature-short">
+            <p></p>
+          </div>
+        </div>
+        <div class="range">
+          <div class="range-icon" id="Vision">
+            <i>Tầm nhìn</i>
+            <p></p>
+          </div>
+          <div class="range-icon" id="Wind">
+            <i>Gió</i>
+            <p></p>
+          </div>
+          <div class="range-icon" id="Humidity">
+            <i>Độ ẩm</i>
+            <p></p>
+          </div>
+          <div class="range-icon" id="Pressure">
+            <i>Áp suất</i>
+            <p></p>
+          </div>
+        </div>
+        <div
+          class="box"
+          data-intro="Hiển thị thời gian mộc  và lặng của mặt trời"
+        >
+          <div class="box-sunrise">
+            <i>Mặt trời mộc</i>
+            <p id="box-sunrise"></p>
+          </div>
+          <div class="box-sunset">
+            <i>Mặt trời lặn</i>
+            <p id="box-sunset"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js -->
+    <script src="/src/assets/js/index.js"></script>
+    <script src="./assets/js/moment.js"></script>
+    <!-- introJs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script>
+      introJs().start();
+    </script>
+  </body>
+</html>
