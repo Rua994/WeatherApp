@@ -4,12 +4,17 @@
 @import "./scss/reset.scss";
 
 .contenner {
+  position: relative;
   width: 620px;
   max-width: 100%;
   height: 400px;
   max-height: 100%;
   padding: 20px;
-  background-color: $primary;
+  background: linear-gradient(to left, #41c9e2, #008dda);
+  color: $secondary;
+  .contenner.dark {
+    background: linear-gradient(90deg, #6c6f95, #1e0342);
+  }
 
   h1 {
     text-align: center;
@@ -48,7 +53,6 @@
         flex-direction: row-reverse;
         justify-content: center;
         gap: 2rem;
-
         border-radius: 3rem;
         background: rgba($color: #fff, $alpha: 0.6);
 
@@ -56,6 +60,7 @@
         line-height: 10rem;
         p {
           font-size: 3.5rem;
+          color: $text;
         }
       }
     }
@@ -71,11 +76,11 @@
     }
     .box {
       position: absolute;
-      bottom: -210px;
-      left: -10px;
+      bottom: -180px;
+      left: -66px;
       padding: 20px 10px 30px 20px;
       width: 200px;
-      height: 200px;
+      height: 150px;
       border-radius: 60px 20px 10px 20px;
       box-shadow: 2px 1px 3px 1px rgba($color: #000, $alpha: 0.6);
 
@@ -84,5 +89,28 @@
         margin: 2rem 0;
       }
     }
+  }
+  .toogle {
+    position: relative;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-color: $accent;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 99px;
+    cursor: pointer;
+    .ball {
+      position: absolute;
+      background-color: #000;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      transition: all 0.2s linear;
+    }
+  }
+  .active .ball {
+    left: 3rem;
   }
 }

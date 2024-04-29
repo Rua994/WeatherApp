@@ -18,6 +18,9 @@ const time = document.querySelector("#time");
 const sunrise = document.getElementById("box-sunrise");
 const sunset = document.getElementById("box-sunset");
 
+let toggle = document.getElementById("toggle");
+let contenner = document.getElementById("contenner");
+
 setInterval(() => {
   time.textContent = moment().format("H:mm:ss");
 }, 1000);
@@ -57,9 +60,17 @@ sreachInput.addEventListener("dblclick", () => {
   sreachInput.classList.remove("hide");
 });
 
+// Cập nhật title
 const updateTitle = () => {
   const inputValue = document.getElementById("sreach-input").value;
   document.title = inputValue;
 };
 const inputElement = document.getElementById("sreach-input");
 inputElement.addEventListener("input", updateTitle);
+
+// toogle
+
+toggle.addEventListener("click", () => {
+  toggle.classList.toggle("active");
+  contenner.classList.toggle("dark");
+});
