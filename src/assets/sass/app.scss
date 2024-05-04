@@ -10,12 +10,13 @@
   height: 400px;
   max-height: 100%;
   padding: 20px;
-  background: linear-gradient(to left, #41c9e2, #008dda);
-  color: $secondary;
-  .contenner.dark {
-    background: linear-gradient(90deg, #6c6f95, #1e0342);
-  }
+  background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  color: $text;
 
+  &.dark {
+    background: linear-gradient(90deg, #6c6f95, #1e0342);
+    color: $secondary;
+  }
   h1 {
     text-align: center;
   }
@@ -54,8 +55,7 @@
         justify-content: center;
         gap: 2rem;
         border-radius: 3rem;
-        background: rgba($color: #fff, $alpha: 0.6);
-
+        background: rgba($color: $accent, $alpha: 0.6);
         height: 10rem;
         line-height: 10rem;
         p {
@@ -82,7 +82,7 @@
       width: 200px;
       height: 150px;
       border-radius: 60px 20px 10px 20px;
-      box-shadow: 2px 1px 3px 1px rgba($color: #000, $alpha: 0.6);
+      box-shadow: 2px 1px 3px 1px rgba($color: $text, $alpha: 0.6);
 
       background-color: $primary;
       .box-sunset {
@@ -102,7 +102,7 @@
     cursor: pointer;
     .ball {
       position: absolute;
-      background-color: #000;
+      background-color: $text;
       left: 0;
       width: 2rem;
       height: 2rem;
@@ -110,7 +110,23 @@
       transition: all 0.2s linear;
     }
   }
-  .active .ball {
-    left: 3rem;
+  .active {
+    .ball {
+      left: 3rem;
+    }
+  }
+}
+.dark .content .temperature .temperature-dec p {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .contenner {
+    width: 400px;
+    .content {
+      .box {
+        margin: -2rem 1rem;
+      }
+    }
   }
 }

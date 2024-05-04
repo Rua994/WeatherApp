@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <!-- jquery -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
+    />
     <!-- link css -->
     <link rel="stylesheet" href="/src/assets/css/app.css" />
     <!--fontAwesome  -->
@@ -84,10 +89,27 @@
           </div>
         </div>
       </div>
-      <div class="toogle" id="toggle">
+      <div
+        id="dialog"
+        title="Đây là diglog"
+        data-intro="Đây là dialog có thể nắm kéo di chuyển qua nơi khác"
+      >
+        <p>Chào mừng các bạn đến với trang thời tiết của Rùa</p>
+      </div>
+      <div data-intro="công tắc đổi giao diện" class="toogle" id="toggle">
         <div class="ball"></div>
       </div>
     </div>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $("#dialog").dialog();
+      });
+    </script>
+
     <!-- js -->
     <script src="/src/assets/js/index.js"></script>
     <script src="./assets/js/moment.js"></script>

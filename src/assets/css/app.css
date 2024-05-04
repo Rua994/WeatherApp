@@ -29,6 +29,11 @@ button {
   border: none;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+}
 .contenner {
   position: relative;
   width: 620px;
@@ -36,11 +41,12 @@ button {
   height: 400px;
   max-height: 100%;
   padding: 20px;
-  background: linear-gradient(to left, #41c9e2, #008dda);
-  color: #dcdcdc;
+  background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  color: #0e0e13;
 }
 .contenner.dark {
   background: linear-gradient(90deg, #6c6f95, #1e0342);
+  color: #dcdcdc;
 }
 .contenner h1 {
   text-align: center;
@@ -82,7 +88,7 @@ button {
   justify-content: center;
   gap: 2rem;
   border-radius: 3rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(173, 141, 164, 0.6);
   height: 10rem;
   line-height: 10rem;
 }
@@ -108,7 +114,7 @@ button {
   width: 200px;
   height: 150px;
   border-radius: 60px 20px 10px 20px;
-  box-shadow: 2px 1px 3px 1px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 1px 3px 1px rgba(14, 14, 19, 0.6);
   background-color: #6c6f95;
 }
 .contenner .content .box .box-sunset {
@@ -127,7 +133,7 @@ button {
 }
 .contenner .toogle .ball {
   position: absolute;
-  background-color: #000;
+  background-color: #0e0e13;
   left: 0;
   width: 2rem;
   height: 2rem;
@@ -136,6 +142,19 @@ button {
 }
 .contenner .active .ball {
   left: 3rem;
+}
+
+.dark .content .temperature .temperature-dec p {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .contenner {
+    width: 400px;
+  }
+  .contenner .content .box {
+    margin: -2rem 1rem;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -28,29 +28,34 @@ setInterval(() => {
 sreachInput.addEventListener("change", (e) => {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&units=metric&appid=2c9d5adf1c05e9c7f7c1e05e878a560a&lang=vi&units=metric `
-  ).then(async (res) => {
-    const data = await res.json();
-    console.log(data);
-    city.textContent = data.name;
-    contry.textContent = data.sys.country;
+  )
+    .then(async (res) => {
+      const data = await res.json();
+      console.log(data);
+      city.textContent = data.name;
+      contry.textContent = data.sys.country;
 
-    temperatureDec.textContent = Math.round(data.main.temp);
-    temperatureShort.textContent = data.weather[0].description;
+      temperatureDec.textContent = Math.round(data.main.temp) + "°";
+      temperatureShort.textContent = data.weather[0].description;
 
-    weatherIcon.setAttribute(
-      "src",
-      `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-    );
+      weatherIcon.setAttribute(
+        "src",
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      );
 
-    Vision.textContent = data.visibility;
-    Humidity.textContent = data.main.humidity;
-    Wind.textContent = data.wind.speed;
-    Pressure.textContent = data.main.pressure;
+      Vision.textContent = data.visibility;
+      Humidity.textContent = data.main.humidity;
+      Wind.textContent = data.wind.speed;
+      Pressure.textContent = data.main.pressure;
 
-    sunrise.textContent = moment.unix(data.sys.sunrise).format("H:mm");
+      sunrise.textContent = moment.unix(data.sys.sunrise).format("H:mm");
 
-    sunset.textContent = moment.unix(data.sys.sunset).format("H:mm");
-  });
+      sunset.textContent = moment.unix(data.sys.sunset).format("H:mm");
+    })
+    .catch((error) => {
+      console.error(error.message);
+      contry.textContent = error.message;
+    });
 });
 
 sreachInput.addEventListener("click", () => {
@@ -61,16 +66,40 @@ sreachInput.addEventListener("dblclick", () => {
 });
 
 // Cập nhật title
-const updateTitle = () => {
+const inputElement = document.getElementById("sreach-input");
+inputElement.addEventListener("input", () => {
   const inputValue = document.getElementById("sreach-input").value;
   document.title = inputValue;
-};
-const inputElement = document.getElementById("sreach-input");
-inputElement.addEventListener("input", updateTitle);
+});
 
 // toogle
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  contenner.classList.add("dark");
+}
 
 toggle.addEventListener("click", () => {
   toggle.classList.toggle("active");
-  contenner.classList.toggle("dark");
+  if (contenner.classList.contains("dark")) {
+    contenner.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  } else {
+    contenner.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  }
+});
+
+const noCopy = document.getElementById("contenner");
+const name = "@Rùa".toUpperCase();
+
+const h = new Date().getHours();
+const m = new Date().getMinutes();
+noCopy.addEventListener("copy", (e) => {
+  const textToCopy = window.getSelection().toString();
+  const addText = ` Nội dung đã được copy vào lúc ${h}:${m} từ nguồn của người này ${name}`;
+  const fullText = `${textToCopy} ${addText}`;
+  alert(`Nội dung đã được copy từ nguồn của người này ${name}`);
+  e.clipboardData.setData("text/plain", fullText);
+
+  e.preventDefault();
 });
